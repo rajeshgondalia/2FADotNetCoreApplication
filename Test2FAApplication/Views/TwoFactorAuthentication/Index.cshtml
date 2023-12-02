@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.IsAuthDisplay == false)
+{ 
+    <h1>Authentication Details</h1> 
+    <form method="post">
+    Email
+    <input name="Email" type="text" id="txtemail" />
+    <br />
+    Mobile No  
+    <input name="Mobile" type="text" id="txtmobile" />
+    <br />
+    <input type="submit" id="txtsubmit" />
+    </form>
+}
+
+@if (ViewBag.IsAuthDisplay == true)
+{
+    <form method="post" action="EnableAuth">
+        <img src="@ViewBag.BarcodeImageUrl" /><br />
+        Setup code: @ViewBag.SetupCode<br />
+        Input security code: <input name="inputCode" /><br />
+        <input type="submit" />
+    </form>
+} 
